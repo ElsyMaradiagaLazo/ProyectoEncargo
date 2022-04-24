@@ -1,0 +1,49 @@
+﻿@page "/Envios"
+
+<h3>Lista de envios a encomienda</h3>
+
+<div class"form-group row">
+    <div class="col-sm-2">
+        <a href="/Envios/Nuevo" class="btn btn-primary">Nuevo Envio</a>
+    </div>
+</div>
+
+@if (envioLista == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Código del envio</th>
+                <th>Persona Remitente</th>
+                <th>Descripcion del objeto enviado</th>
+                <th>Direccion de entrega</th>
+                <th>Fecha de envio</th>
+                <th>Tarifa</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ship in envioLista)
+            {
+                <tr>
+                    <td>@ship.CodigoEnvio</td>
+                    <td>@ship.Remitente</td>
+                    <td>@ship.Descripcion</td>
+                    <td>@ship.DireccionEntrega</td>
+                    <td>@ship.FechaEnvio</td>
+                    <td>@ship.Tarifa</td>
+                    <td>@ship.Total</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+
+
